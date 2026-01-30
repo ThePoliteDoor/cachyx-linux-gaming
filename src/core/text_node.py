@@ -1,6 +1,6 @@
 from enum import Enum
 
-from src.html_node import LeafNode
+from src.core.html_node import LeafNode
 
 
 class TextType(Enum):
@@ -26,6 +26,9 @@ class TextNode:
             and self.text_type == other.text_type
             and self.url == other.url
         )
+
+    def __repr__(self):
+        return f"TextNode({self.text}, {self.text_type}, {self.url})"
 
 
 def text_node_to_html_node(text_node):
@@ -58,7 +61,4 @@ def text_node_to_html_node(text_node):
             },
         )
 
-    raise Exception(f"Unsupported TextType: {text_node.text_type}")
-
-    def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type}, {self.url})"
+    raise ValueError(f"Unsupported TextType: {text_node.text_type}")

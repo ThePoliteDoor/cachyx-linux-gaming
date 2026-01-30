@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ Title }}</title>
+        <link href="/index.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="site-notice">
+            <strong>🚧 Under Construction</strong><br />
+            This site is actively being built. Some guides may be incomplete or
+            change.
+        </div>
+        <div class="layout">
+            <!-- LEFT SIDEBAR -->
+            <nav class="sidebar left">{{ Sidebar }}</nav>
+
+            <!-- MAIN CONTENT -->
+            <main class="content">
+                <article>{{ Content }}</article>
+            </main>
+
+            <!-- RIGHT SIDEBAR (EMPTY FOR NOW) -->
+            <aside class="sidebar right">
+                <!-- future:
+                     table of contents
+                     related guides
+                     notes
+                -->
+            </aside>
+        </div>
+        <script src="/js/sidebar.js" defer></script>
+    </body>
+</html>

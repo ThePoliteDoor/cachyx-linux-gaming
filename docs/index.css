@@ -1,0 +1,310 @@
+.site-notice {
+    max-width: 700px;
+    margin: 24px auto; /* centers horizontally */
+    text-align: center;
+
+    background: #1e1e1e;
+    border: 2px solid #ff9800;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+}
+
+body {
+    background-color: #0f1117;
+    color: #dcdcdc;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        "Noto Sans",
+        Arial,
+        sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+}
+
+b {
+    font-weight: 900;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #a6e3a1;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    text-shadow: none;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1.2em;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+a:hover {
+    color: #f4a261;
+    border-color: #f4a261;
+    text-decoration: underline;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+code {
+    background-color: #161b22;
+    border-radius: 6px;
+    color: #a6e3a1;
+    padding: 0.4em 0.6em;
+    font-family: "Courier New", monospace;
+}
+
+pre code {
+    padding: 0;
+}
+
+pre {
+    background-color: #161b22;
+    border-radius: 6px;
+    padding: 1em;
+    overflow: auto;
+    box-shadow: none;
+}
+
+blockquote {
+    background-color: #2e2c35;
+    border-left: 4px solid #8d99ae;
+    padding-left: 2em;
+    margin-left: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
+    color: #ddd;
+    font-style: italic;
+}
+
+img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+}
+article img {
+    width: 600px;
+    height: 340px;
+    object-fit: contain; /* or cover */
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1c25;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3c3c42;
+    border-radius: 6px;
+    border: 3px solid #1f1c25;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5466;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3c3c42 #1f1c25;
+}
+
+::-webkit-scrollbar-corner {
+    background: #1f1c25;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 260px;
+    min-height: 100vh;
+}
+
+.sidebar {
+    margin-top: 24px;
+    margin: 16px;
+    padding: 16px 14px;
+    background-color: #0f1117;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.sidebar.left {
+    justify-self: start;
+    border-right: 1px solid #1f2937;
+    margin-right: 12px;
+    padding-right: 32px;
+}
+
+.sidebar.right {
+    border-left: 1px solid #1f2937;
+    color: #9aa0a6;
+    font-size: 0.9em;
+}
+
+.sidebar h2,
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.sidebar h3 {
+    font-size: 0.95rem;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9aa0a6;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Indent nested sidebar items (doc-style) */
+.sidebar ul ul {
+    padding-left: 18px; /* indentation */
+    margin-top: 6px;
+}
+/* Child items (pages) */
+.sidebar ul ul a {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: normal;
+    color: #c9d1d9;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+.sidebar li.open > ul {
+    display: block;
+}
+
+.sidebar li > span {
+    cursor: pointer;
+    color: #9aa0a6;
+}
+.sidebar li > span:hover {
+    text-decoration: underline;
+}
+/* Optional: subtle visual guide */
+.sidebar ul ul li {
+    position: relative;
+}
+/* Optional: vertical guide line (docs feel) */
+.sidebar ul ul li::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 1px;
+    background-color: #1f2937;
+}
+.sidebar a {
+    color: #c9d1d9;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #c9d1d9;
+    text-decoration: underline;
+}
+
+/* Sidebar top-level sections (doc-style) */
+.sidebar > ul > li > span,
+.sidebar > ul > li > a {
+    font-size: 1.05rem; /* bigger */
+    font-weight: 600;
+    color: #a6e3a1; /* same as h1/h2 */
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.content {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.content article {
+    max-width: 1050px;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .layout {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .sidebar.right {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        margin: 8px;
+    }
+
+    .sidebar.left,
+    .sidebar.right {
+        border: none;
+    }
+
+    .sidebar.left {
+        width: 100%;
+        order: -1;
+    }
+}

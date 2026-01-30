@@ -1,27 +1,32 @@
 import sys
 
-from src.generate_page import generate_pages_recursive
-from src.generate_static import copy_directory_recursive
+from src.build.generate_sidebar import (
+    build_sidebar_from_pages,
+)
+from src.build.generate_static import copy_directory_recursive
+from src.build.recursive_generate import generate_pages_recursive
+from src.data.site_path import collect_pages
 
 
 def main():
-    # Get basepath from CLI args
-    if len(sys.argv) > 1:
-        basepath = sys.argv[1]
-    else:
-        basepath = "/"
+    # Basepath from CLI
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
 
-    # Copy static → docs
-    output_dir = "docs"
-    copy_directory_recursive("static", output_dir)
+    CONTENT = "content"
+    OUTPUT = "docs"
+    TEMPLATE = "template.html"
 
-    # Generate index page
-    generate_pages_recursive(
-        "content",
-        "template.html",
-        output_dir,
-        basepath,
-    )
+    # 1. Copy static assets
+    copy_directory_recursive("static", OUTPUT)
+
+    # 2. Collect ALL pages (single source of truth)
+    pages = collect_pages(CONTENT, OUTPUT, basepath)
+
+    # 3. Build sidebar from pages
+    sidebar_html = build_sidebar_from_pages(pages)
+
+    # 4. Generate pages (render only)
+    generate_pages_recursive(pages, TEMPLATE, sidebar_html)
 
 
 if __name__ == "__main__":

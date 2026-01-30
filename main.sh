@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-
+#
 python3 -m src.main
-cd public && python3 -m http.server 8888
+#cd public
+cd docs && python3 -m http.server 8888

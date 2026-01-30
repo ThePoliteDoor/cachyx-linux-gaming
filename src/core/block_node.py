@@ -1,8 +1,8 @@
 from enum import Enum
 
-from src.html_node import LeafNode, ParentNode
-from src.markdown_node import text_to_textnodes
-from src.text_node import TextNode, TextType, text_node_to_html_node
+from src.core.html_node import LeafNode, ParentNode
+from src.core.markdown_node import text_to_textnodes
+from src.core.text_node import TextNode, TextType, text_node_to_html_node
 
 
 def text_to_children(text):

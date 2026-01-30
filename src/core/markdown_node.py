@@ -1,6 +1,28 @@
 import re
 
-from src.text_node import TextNode, TextType
+from src.core.text_node import TextNode, TextType
+
+# helpers
+ESCAPES = {
+    "\\**": "__ESCAPED_DOUBLE_ASTERISK__",
+    "\\*": "__ESCAPED_ASTERISK__",
+    "\\`": "__ESCAPED_BACKTICK__",
+}
+
+
+def escape_markdown_literals(text):
+    for k, v in ESCAPES.items():
+        text = text.replace(k, v)
+    return text
+
+
+def unescape_markdown_literals(text):
+    for k, v in ESCAPES.items():
+        text = text.replace(v, k[1:])
+    return text
+
+
+# helpers end
 
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
@@ -16,7 +38,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 
         # If delimiter count is odd → invalid markdown
         if len(parts) % 2 == 0:
-            raise Exception(f"Invalid markdown syntax: missing closing '{delimiter}'")
+            raise ValueError(f"Invalid markdown syntax: missing closing '{delimiter}'")
 
         for i, part in enumerate(parts):
             if part == "":
@@ -120,16 +142,23 @@ def split_nodes_link(old_nodes):
 
 
 def text_to_textnodes(text):
+    text = escape_markdown_literals(text)
+
     # Start with a single TEXT node
     nodes = [TextNode(text, TextType.TEXT)]
 
     # Split by inline markdown delimiters
-    nodes = split_nodes_delimiter(nodes, "**", TextType.BOLD)
-    nodes = split_nodes_delimiter(nodes, "_", TextType.ITALIC)
     nodes = split_nodes_delimiter(nodes, "`", TextType.CODE)
+    nodes = split_nodes_delimiter(nodes, "**", TextType.BOLD)
+    nodes = split_nodes_delimiter(nodes, "*", TextType.ITALIC)
 
     # Split images and links last
     nodes = split_nodes_image(nodes)
     nodes = split_nodes_link(nodes)
+
+    # restore escaped literals
+    for node in nodes:
+        if node.text_type == TextType.TEXT:
+            node.text = unescape_markdown_literals(node.text)
 
     return nodes

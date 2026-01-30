@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Linux Troubleshooting</title>
+        <link href="/index.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="site-notice">
+            <strong>🚧 Under Construction</strong><br />
+            This site is actively being built. Some guides may be incomplete or
+            change.
+        </div>
+        <div class="layout">
+            <!-- LEFT SIDEBAR -->
+            <nav class="sidebar left"><ul>
+<li><a href="/">Home</a></li>
+<li>
+<span>Guides</span>
+<ul>
+<li>
+<a href="/guides/battlenet/">Battlenet</a>
+</li>
+</ul>
+</li>
+<li>
+<span>Games</span>
+<ul>
+<li>
+<a href="/games/world-of-warcraft/">World Of Warcraft</a>
+</li>
+</ul>
+</li>
+<li>
+<span>Troubleshooting</span>
+<ul>
+<li>
+<a href="/troubleshooting/linux/">Linux</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/contact/">Contact</a>
+</li>
+</ul></nav>
+
+            <!-- MAIN CONTENT -->
+            <main class="content">
+                <article><div><h1>Linux Troubleshooting</h1><p><img src="/images/linux-terminal.png" alt="Linux terminal"></img></p><p>Common issues and fixes for Steam Proton and Battle.net.</p><h2>How to find where Battle.net Installed</h2><p><code>sudo find / \( -iname "*battle.net*" -o -iname "*battlenet*" \) 2>/dev/null</code></p><h2>Battle.net shows only xGB free</h2><p>Cause: Battle.net reads fake disk space from the Proton prefix.</p><p>Fix: <code>STEAM_COMPAT_DATA_PATH=/games/Steam/Battlenet %command%</code></p><h2>Battle.net stuck updating agent</h2><p>Fix: 1. Close Battle.net 2. Restart Steam 3. Launch Battle.net again</p><h2>Game won’t launch after update</h2><p>Fix: - Switch to Proton Experimental or 10 - Restart Steam</p></div></article>
+            </main>
+
+            <!-- RIGHT SIDEBAR (EMPTY FOR NOW) -->
+            <aside class="sidebar right">
+                <!-- future:
+                     table of contents
+                     related guides
+                     notes
+                -->
+            </aside>
+        </div>
+        <script src="/js/sidebar.js" defer></script>
+    </body>
+</html>
