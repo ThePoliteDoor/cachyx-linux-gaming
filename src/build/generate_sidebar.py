@@ -1,5 +1,10 @@
 import os
 import re
+import sys
+
+base_path = sys.argv[1] if len(sys.argv) > 1 else "/"
+if not base_path.endswith("/"):
+    base_path += "/"
 
 
 def clean_label(name):
@@ -39,7 +44,7 @@ def render_sidebar(tree, is_root=True):
     html = ["<ul>"]
 
     if is_root:
-        html.append('<li><a href="/">Home</a></li>')
+        html.append(f'<li><a href="{base_path}">Home</a></li>')
 
     def node_weight(node):
         if "_page" in node and node["_page"]:
