@@ -89,7 +89,7 @@ code {
 }
 
 pre code {
-    padding: 0;
+    background: none;
 }
 
 pre {
@@ -112,17 +112,13 @@ blockquote {
     font-style: italic;
 }
 
-img {
-    max-width: 600px;
-    width: 100%;
-    height: auto;
-    margin: 1rem auto;
-    display: block;
-}
 article img {
-    width: 600px;
-    height: 340px;
-    object-fit: contain; /* or cover */
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+    margin: 16px auto;
 }
 
 ::-webkit-scrollbar {
@@ -211,6 +207,7 @@ article img {
 .sidebar ul ul {
     padding-left: 18px; /* indentation */
     margin-top: 6px;
+    display: none;
 }
 /* Child items (pages) */
 .sidebar ul ul a {

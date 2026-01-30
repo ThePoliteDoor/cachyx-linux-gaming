@@ -4,7 +4,7 @@ from src.core.block_node import markdown_to_html_node
 from src.data.extract_title import strip_frontmatter
 
 
-def generate_page(page, template_path, sidebar_html):
+def generate_page(page, template_path, sidebar_html, base_path):
     print(f"Generating page: {page['dest_path']}")
 
     with open(page["source_path"], "r") as f:
@@ -20,6 +20,7 @@ def generate_page(page, template_path, sidebar_html):
         template.replace("{{ Title }}", page["title"])
         .replace("{{ Content }}", content_html)
         .replace("{{ Sidebar }}", sidebar_html)
+        .replace("{{ BasePath }}", base_path)
     )
 
     os.makedirs(os.path.dirname(page["dest_path"]), exist_ok=True)

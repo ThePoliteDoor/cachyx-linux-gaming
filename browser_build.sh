@@ -2,7 +2,7 @@
 set -e
 
 ./build.sh
-python3 -m src.main
+python3 -m src.main "/"
 
 cd docs || exit 1
 

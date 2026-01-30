@@ -1,19 +1,14 @@
 import os
 import re
-import sys
-
-base_path = sys.argv[1] if len(sys.argv) > 1 else "/"
-if not base_path.endswith("/"):
-    base_path += "/"
 
 
 def clean_label(name):
     return re.sub(r"^\d+[-_]", "", name).replace("-", " ").title()
 
 
-def build_sidebar_from_pages(pages):
+def build_sidebar_from_pages(pages, base_path):
     tree = build_tree(pages)
-    return render_sidebar(tree)
+    return render_sidebar(tree, base_path)
 
 
 def new_node():
@@ -24,23 +19,27 @@ def build_tree(pages):
     tree = {}
 
     for page in pages:
-        if not page["is_index"]:
-            continue
-
-        # e.g. guides/battlenet/index.md → ["guides", "battlenet"]
         rel = os.path.relpath(page["source_path"], "content")
-        parts = rel.split(os.sep)[:-1]
+        parts = rel.split(os.sep)
+
+        # remove index.md
+        is_index = parts[-1] == "index.md"
+        if is_index:
+            parts = parts[:-1]
 
         node = tree
         for part in parts:
             node = node.setdefault(part, {})
 
-        node["_page"] = page
+        if is_index:
+            node["_page"] = page
+        else:
+            node.setdefault("_children_pages", []).append(page)
 
     return tree
 
 
-def render_sidebar(tree, is_root=True):
+def render_sidebar(tree, base_path, is_root=True):
     html = ["<ul>"]
 
     if is_root:
@@ -59,15 +58,19 @@ def render_sidebar(tree, is_root=True):
             continue
 
         page = node.get("_page")
-
         html.append("<li>")
 
         if page:
-            html.append(
-                f'<a href="{page["url"]}">{page["slug"].replace("-", " ").title()}</a>'
-            )
+            url = page["url"]
+
+            # internal link → prepend base_path
+            if url.startswith("/") and not url.startswith(base_path):
+                url = base_path.rstrip("/") + url
+
+            label = page["slug"].replace("-", " ").title()
+            html.append(f'<a href="{url}">{label}</a>')
         else:
-            # Section label = cleaned folder name
+            # Section label (folder)
             label = clean_label(key)
             html.append(f"<span>{label}</span>")
 
@@ -76,8 +79,9 @@ def render_sidebar(tree, is_root=True):
             for k, v in node.items()
             if isinstance(v, dict) and not k.startswith("_")
         }
+
         if children:
-            html.append(render_sidebar(children, is_root=False))
+            html.append(render_sidebar(children, base_path, is_root=False))
 
         html.append("</li>")
 
