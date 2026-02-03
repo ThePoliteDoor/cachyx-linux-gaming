@@ -11,6 +11,7 @@ Play your favorite games on **Linux** using **Steam + Proton**.
 ## Guides
 
 - [Install Battle.net on Steam Proton](/guides/battlenet/)
+- [Install Wow Addons on Linux](/guides/wow_addons/)
 - [World of Warcraft on Linux](/games/world-of-warcraft/)
 - Prefer video? Watch the full [step-by-step guide](https://youtu.be/2PO4FA-5CZI)
 

@@ -16,7 +16,7 @@ This guide installs **Battle.net** as a **Non-Steam Game** and runs it using **P
 
 Download Battle.net from the official site:
 
-- https://www.blizzard.com/download
+- [Battle.net](https://www.blizzard.com/download)
 
 Save the file somewhere easy to find. For example, I saved it in the folder where I will install the game for easy reference.
 

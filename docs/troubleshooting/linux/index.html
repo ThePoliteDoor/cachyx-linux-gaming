@@ -23,6 +23,9 @@
 <li>
 <a href="/cachyx-linux-gaming/guides/battlenet/">Battlenet</a>
 </li>
+<li>
+<a href="/cachyx-linux-gaming/guides/wow_addons/">Wow_Addons</a>
+</li>
 </ul>
 </li>
 <li>
@@ -48,7 +51,7 @@
 
             <!-- MAIN CONTENT -->
             <main class="content">
-                <article><div><h1>Linux Troubleshooting</h1><p><img src="/cachyx-linux-gaming/images/linux-terminal.png" alt="Linux terminal"></img></p><p>Common issues and fixes for Steam Proton and Battle.net.</p><h2>How to find where Battle.net Installed</h2><p><code>sudo find / \( -iname "*battle.net*" -o -iname "*battlenet*" \) 2>/dev/null</code></p><h2>Battle.net shows only xGB free</h2><p>Cause: Battle.net reads fake disk space from the Proton prefix.</p><p>Fix: <code>STEAM_COMPAT_DATA_PATH=/games/Steam/Battlenet %command%</code></p><h2>Battle.net stuck updating agent</h2><p>Fix: 1. Close Battle.net 2. Restart Steam 3. Launch Battle.net again</p><h2>Game won’t launch after update</h2><p>Fix: - Switch to Proton Experimental or 10 - Restart Steam</p></div></article>
+                <article><div><h1>Linux Troubleshooting</h1><p><img src="/cachyx-linux-gaming/images/linux-terminal.png" alt="Linux terminal"></img></p><p>Common issues and fixes for Steam Proton and Battle.net.</p><h2>How to open your Terminal</h2><p><b>Ctrl + Alt + T</b></p><h2>How to find where Battle.net Installed</h2><p><code>sudo find / \( -iname "*battle.net*" -o -iname "*battlenet*" \) 2>/dev/null</code></p><h2>Battle.net shows only xGB free</h2><p>Cause: Battle.net reads fake disk space from the Proton prefix.</p><p>Fix: <code>STEAM_COMPAT_DATA_PATH=/games/Steam/Battlenet %command%</code></p><h2>Battle.net stuck updating agent</h2><p>Fix: 1. Close Battle.net 2. Restart Steam 3. Launch Battle.net again</p><h2>Game won’t launch after update</h2><p>Fix: - Switch to Proton Experimental or 10 - Restart Steam</p><h2>Where to find World of Warcraft addons</h2><p><code>sudo find / -type d -iname "AddOns" 2>/dev/null | grep -i "World of Warcraft"</code></p><h2>How to make an Application Executable</h2><p><code>chmod +x "filename.appimage"</code></p></div></article>
             </main>
 
             <!-- RIGHT SIDEBAR (EMPTY FOR NOW) -->

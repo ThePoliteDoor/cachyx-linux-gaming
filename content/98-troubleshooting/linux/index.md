@@ -4,6 +4,10 @@
 
 Common issues and fixes for Steam Proton and Battle.net.
 
+## How to open your Terminal
+
+**Ctrl + Alt + T**
+
 ## How to find where Battle.net Installed
 
 `sudo find / \( -iname "*battle.net*" -o -iname "*battlenet*" \) 2>/dev/null`
@@ -28,3 +32,11 @@ Fix:
 Fix:
 - Switch to Proton Experimental or 10
 - Restart Steam
+
+## Where to find World of Warcraft addons
+
+`sudo find / -type d -iname "AddOns" 2>/dev/null | grep -i "World of Warcraft"`
+
+## How to make an Application Executable
+
+`chmod +x "filename.appimage"`

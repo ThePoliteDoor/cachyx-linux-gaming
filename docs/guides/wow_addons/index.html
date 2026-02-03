@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>World of Warcraft Addons on Linux</title>
+        <link href="/cachyx-linux-gaming/index.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="site-notice">
+            <strong>🚧 Under Construction</strong><br />
+            This site is actively being built. Some guides may be incomplete or
+            change.
+        </div>
+        <div class="layout">
+            <!-- LEFT SIDEBAR -->
+            <nav class="sidebar left"><ul>
+<li><a href="/cachyx-linux-gaming/">Home</a></li>
+<li>
+<span>Guides</span>
+<ul>
+<li>
+<a href="/cachyx-linux-gaming/guides/battlenet/">Battlenet</a>
+</li>
+<li>
+<a href="/cachyx-linux-gaming/guides/wow_addons/">Wow_Addons</a>
+</li>
+</ul>
+</li>
+<li>
+<span>Games</span>
+<ul>
+<li>
+<a href="/cachyx-linux-gaming/games/world-of-warcraft/">World Of Warcraft</a>
+</li>
+</ul>
+</li>
+<li>
+<span>Troubleshooting</span>
+<ul>
+<li>
+<a href="/cachyx-linux-gaming/troubleshooting/linux/">Linux</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/cachyx-linux-gaming/contact/">Contact</a>
+</li>
+</ul></nav>
+
+            <!-- MAIN CONTENT -->
+            <main class="content">
+                <article><div><h1>World of Warcraft Addons on Linux</h1><p><img src="/cachyx-linux-gaming/images/wow-addons-linux.png" alt="WoW Addons on Linux"></img></p><p>This guide shows how to install and manage <b>World of Warcraft addons on Linux</b> using three reliable methods:</p><ul><li>Manual installation</li><li>WowUp</li><li>CurseForge</li></ul><blockquote>Understanding manual installation first helps you troubleshoot and avoid common issues later.</blockquote><h2>Tested setup</h2><ul><li>OS: CachyOS (Arch-based Linux)</li><li>Desktop: Wayland</li><li>Game: World of Warcraft (Retail)</li><li>Launcher: Battle.net (Steam Protn)</li><li>Addon managers: WowUp, CurseForge</li></ul><p>Other distros should work similarly, but paths and commands may differ.</p><h2>Step 1: Find your World of Warcraft folder</h2><p>If you’re unsure where WoW is installed, open a terminal:</p><p><b>Ctrl + Alt + T</b></p><p>Run:</p><p><code>sudo find / -type d -iname "AddOns" 2>/dev/null | grep -i "World of Warcraft"</code></p><p>Depending on your install, you may see:</p><p><b>_retail_</b>, <b>_classic_</b> or <b>_classic_era_</b></p><p>Remember this path — you’ll need it for all addon methods.</p><h2>Step 2: Manual addon installation (recommended first)</h2><p>Manual installation confirms that your addon path is correct.</p><ol><li>Go to <a href="https://www.curseforge.com/">Curseforge</a></li><li>Search for an addon (example: <i>RareScanner</i>)</li><li>Download the addon as a ZIP file and Extract it</li><li>Navigate to: <b>World of Warcraft/_retail_/Interface/AddOns</b></li><li>Move the extracted addon folder directly into AddOns.</li><li>Restart WoW or reload the UI: <b>/reload</b></li><li>Open the AddOns menu and confirm it is enabled.</li></ol><p>To remove a manually installed addon, simply delete its folder.</p><h2>Step 3: Using WowUp on Linux</h2><p>WowUp is lightweight and works well on Linux.</p><ol><li>Download the AppImage version for Linux <a href="https://wowup.io/">WowUp app</a></li><li>Make it executable: <code>chmod +x WowUp*.AppImage</code></li><li>Run it: <code>./WowUp*.AppImage</code> or double <b>click</b> on the App</li><li>On first launch, WowUp will not auto-detect WoW. Add the game manually.</li><li>Once detected, you can search and install addons normally.</li></ol><p>After installing addons, <b>/reload</b> the UI in the game</p><h2>Step 4: Using CurseForge on Linux</h2><p>CurseForge works similarly to WowUp.</p><ol><li>Download the AppImage version for Linux <a href="https://www.curseforge.com/download/app">CurseForge app</a></li><li>Make the AppImage executable: <code>chmod +x CurseForge*.AppImage</code></li><li>Run it: <code>./CurseForge*.AppImage</code> or double <b>click</b> on the App</li><li>Manually point it to your WoW install</li><li>Once done, you can serach and install addons normally.</li></ol><p>Reload the UI in-game to confirm if it works.</p><h2>Optional: Create desktop shortcuts (AppImages)</h2><p>AppImages do not install system-wide.</p><ol><li>Recommended approach: Create an Applications folder</li><li>Move AppImages to that folder</li><li>Right-click desktop <b>→</b> Create New <b>→</b> Link to Application</li><li>Set name, path, and optional icon</li></ol><p>This works for WowUp, CurseForge, and other AppImages.</p><h2>Prefer video?</h2><p>Watch the full step-by-step video guide here: <a href="https://youtu.be/KbhPr72LmpA">link</a></p></div></article>
+            </main>
+
+            <!-- RIGHT SIDEBAR (EMPTY FOR NOW) -->
+            <aside class="sidebar right">
+                <!-- future:
+                     table of contents
+                     related guides
+                     notes
+                -->
+            </aside>
+        </div>
+        <script src="/cachyx-linux-gaming/js/sidebar.js" defer></script>
+    </body>
+</html>

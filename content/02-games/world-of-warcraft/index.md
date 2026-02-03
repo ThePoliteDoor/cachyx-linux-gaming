@@ -18,15 +18,15 @@ This guide assumes **Battle.net is already installed** using Steam Proton.
 - Install WoW normally from Battle.net
 - Do not move the install directory
 - Let Steam manage Proton
+- Guide to Install [Battle.net](/guides/battlenet/)
 
 ## Addons
 
-Addons work exactly like Windows.
-
-Location:
-Interface/AddOns
-
-No extra tools required.
+- Addons work exactly like Windows.
+- Location: *World of Warcraft/_retail_/Interface/AddOns*
+- Or replace **\_retail_** with **_classic_** or **_classic_era_**
+- No extra tools required.
+- Guide to install [Addons](/guides/wow_addons/)
 
 ## Performance tips
 
